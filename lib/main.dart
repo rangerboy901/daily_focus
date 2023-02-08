@@ -1,4 +1,4 @@
-import 'package:daily_focus/screens/ObjectiveListScreen.dart';
+import 'package:daily_focus/screens/objective_list_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,3 +1,4 @@
+import 'package:daily_focus/screens/add_objective_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,25 +16,26 @@ class _ObjectiveListScreenState extends State<ObjectiveListScreen> {
 
 
 Widget _buildTask(int index) {
-  return ListTile(
-    title: Text('Objective Title'),
-    subtitle: Text('February 5, 2023 | High'),
-    trailing: Checkbox(
-      onChanged: (value) {
-      print(value);
-    },
-      activeColor: Theme.of(context).primaryColor,
-      value: true,
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+    child: Column(
+      children: [
+        ListTile(
+          title: Text('Objective Title'),
+          subtitle: Text('February 5, 2023 | High'),
+          trailing: Checkbox(
+            onChanged: (value) {
+            print(value);
+          },
+            activeColor: Theme.of(context).primaryColor,
+            value: true,
+          ),
+        ),
+        Divider(),
+      ],
     ),
   );
 }
-
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +43,12 @@ Widget _buildTask(int index) {
         backgroundColor: Theme.of(context).primaryColor,
         child: const Icon(Icons.add),
         onPressed: () =>
-          print('navigate to add objective screen'),
+          Navigator.push(context,
+            MaterialPageRoute(
+                builder: (_) => const
+                AddObjectiveScreen(),
+            ),
+          ),
           ),
       body: ListView.builder(
         padding: const EdgeInsets.symmetric(vertical: 80.0),
